@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "emprendedores-ec465": {
+      "hosting": {
+        "voluntariado": [
+          "emprendedores-ec465"
+        ]
+      }
+    }
+  }
+}
