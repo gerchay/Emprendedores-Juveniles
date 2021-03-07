@@ -1,1 +1,22 @@
-<p>inicio works!</p>
+<mat-toolbar color="primary" class="app-header">
+  &nbsp;&nbsp;
+  <span >LOGO</span>
+
+  <span class="example-spacer"></span>
+
+  <button mat-button routerLink="/inicio/principal">
+    <mat-icon>home</mat-icon> Inicio
+  </button>
+  <button mat-button routerLink="/inicio/about">
+    <mat-icon>insert_emoticon</mat-icon> Sobre Nosotros
+  </button>
+  <button mat-button routerLink="/inicio/register">
+    <mat-icon>assignment_turned_in</mat-icon> Registro
+  </button>
+  <button mat-button routerLink="/inicio/login">
+    <mat-icon>person_outline</mat-icon> Iniciar Sesión
+  </button>
+
+</mat-toolbar>
+
+<router-outlet></router-outlet>
