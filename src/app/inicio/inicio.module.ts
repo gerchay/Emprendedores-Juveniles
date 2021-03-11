@@ -5,6 +5,8 @@ import { RegisterComponent } from './register/register.component';
 import { AboutComponent } from './about/about.component';
 import { HomeComponent } from './home/home.component';
 import { InicioRoutingModule } from './inicio-routing.module';
+import { MaterialModule } from '../material/material.module';
+import { FormsModule, ReactiveFormsModule  } from '@angular/forms'; // FORMULARIOS REACTIVOS
 
 @NgModule({
   declarations: [
@@ -16,6 +18,9 @@ import { InicioRoutingModule } from './inicio-routing.module';
   imports: [
     CommonModule,
     InicioRoutingModule,
+    MaterialModule,
+    FormsModule,
+    ReactiveFormsModule,
   ]
 })
 export class InicioModule { }
