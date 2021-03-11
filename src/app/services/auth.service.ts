@@ -14,21 +14,30 @@ export class AuthService {
   onLogin = ({ email, password }) => this.afAuth.signInWithEmailAndPassword( email, password );
   logout = () => this.afAuth.signOut();
 
-  async onRegister( usuario:USUARIO, password:string ){
+  async onRegister( usuario:USUARIO, password:string ):Promise<{ success:boolean, message:string}>{
     try {
-      let respuesta:boolean;
+      let respuesta:any;
       const { user } = await this.afAuth.createUserWithEmailAndPassword( usuario.correo, password );
       await user.updateProfile({ displayName: usuario.nombres });
       await this.firestore.collection( 'usuarios' ).doc( user.uid ).set( Object.assign({}, usuario) )
-        .then( resp => respuesta = true )
-        .catch( err =>{ respuesta = false; console.error(err); } )
+        .then( resp => respuesta = { success:true, message:'¡Bienvenido!'} )
+        .catch( err =>{ respuesta = { success:false, message:'No se pudo Registrar'}; console.error(err); } )
 
-      return respuesta || false;
+      return respuesta || { success:false, message:'No se pudo Registrar'};
 
-    } catch (error) {
-      console.error('Error on register', error);
-      if(error.message == 'The email address is already in use by another account.') console.log( usuario.correo );
-      return false;
+    } catch ({ code, message}) {
+      console.error('Error on register', message);
+      switch( code ){
+        case "auth/email-already-in-use":
+          return { success:false, message:'Ya existe una cuenta con la dirección de correo electrónico'};
+        case "auth/invalid-email":
+          return { success:false, message:'La dirección de correo electrónico no es válida'};
+        case "auth/operation-not-allowed":
+          return { success:false, message:'No se pudo Registrar'};
+        case "auth/weak-password":
+          return { success:false, message:'La contraseña no es lo suficientemente segura'};
+      }
     }
   }
 }
+

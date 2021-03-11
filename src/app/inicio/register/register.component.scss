@@ -1,0 +1,23 @@
+
+.card-centrada{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+
+  mat-card{
+    box-shadow: 5px 10px 18px #888888;
+    max-width: 685px;
+    mat-card-title, mat-card-content {
+      display: flex;
+      justify-content: center;
+      mat-form-field {
+        width: 100%;
+        max-width: 300px;
+      }
+
+    }
+  }
+
+
+}

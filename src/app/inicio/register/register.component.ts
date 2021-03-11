@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { USUARIO } from 'src/app/models/usuario';
 
 @Component({
   selector: 'app-register',
@@ -7,9 +9,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RegisterComponent implements OnInit {
 
-  constructor() { }
+  hide = true;
+  hide2 = true;
+  nuevo:USUARIO = { };
+  password:string = '';
+  password2:string = '';
 
-  ngOnInit(): void {
+  constructor(private route: Router) { }
+  ngOnInit(): void { }
+
+
+  onRegister( ) {
+    this.route.navigate(['/']);
   }
 
 }
