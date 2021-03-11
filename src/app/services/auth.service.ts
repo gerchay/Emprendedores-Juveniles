@@ -12,7 +12,7 @@ export class AuthService {
   userData$: Observable<any>;
   constructor( private afAuth: AngularFireAuth, private firestore: AngularFirestore, ) { this.userData$ = this.afAuth.authState; }
   onLogin = ({ email, password }) => this.afAuth.signInWithEmailAndPassword( email, password );
-  logout = () => this.afAuth.signOut();
+  onLogout = () => this.afAuth.signOut();
 
   async onRegister( usuario:USUARIO, password:string ):Promise<{ success:boolean, message:string}>{
     try {

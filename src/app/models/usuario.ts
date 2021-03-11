@@ -6,4 +6,5 @@ export interface USUARIO{
   apellidos?:string,
   correo?:string,
   telefono?:number,
+  escuela?:string,
 }

@@ -9,19 +9,19 @@
           <mat-form-field appearance="fill" style="margin-right: 30px;">
             <mat-label>CUI</mat-label>
             <input matInput placeholder="CUI" name="cui" [(ngModel)]="nuevo.cui" required type="number" >
-            <mat-icon matSuffix>account_circle</mat-icon>
+            <mat-icon matSuffix>grid_view</mat-icon>
           </mat-form-field>
 
           <mat-form-field appearance="fill">
             <mat-label>Carnet</mat-label>
             <input matInput placeholder="Carnet" name="carnet" [(ngModel)]="nuevo.carnet" required type="number" >
-            <mat-icon matSuffix>account_circle</mat-icon>
+            <mat-icon matSuffix>app_registration</mat-icon>
           </mat-form-field>
 
           <mat-form-field appearance="fill" style="margin-right: 30px;">
             <mat-label>Nombres</mat-label>
             <input matInput placeholder="Nombres" name="nombre" [(ngModel)]="nuevo.nombres" required>
-            <mat-icon matSuffix>account_circle</mat-icon>
+            <mat-icon matSuffix>face</mat-icon>
           </mat-form-field>
 
           <mat-form-field appearance="fill">
@@ -31,30 +31,38 @@
           </mat-form-field>
 
           <mat-form-field appearance="fill" style="margin-right: 30px;">
-            <mat-label>Telefono</mat-label>
-            <input matInput placeholder="Telefono" name="telefono" [(ngModel)]="nuevo.telefono" required type="tel" >
-            <mat-icon matSuffix>account_circle</mat-icon>
+            <mat-label>Carrera de Ingeniería</mat-label>
+            <mat-select placeholder="Carrera de Ingeniería" name="escuela" [(ngModel)]="nuevo.escuela">
+              <mat-option value="01">Ingeniería Civil</mat-option>
+              <mat-option value="02">Ingeniería Química</mat-option>
+              <mat-option value="03">Ingeniería Mecánica</mat-option>
+              <mat-option value="04">Ingeniería Eléctrica</mat-option>
+              <mat-option value="05">Ingeniería Industrial</mat-option>
+              <mat-option value="06">Ingeniería Mecánica Eléctrica</mat-option>
+              <mat-option value="07">Ingeniería Mecánica Industrial</mat-option>
+              <mat-option value="09">Ingeniería en Ciencias y Sistemas</mat-option>
+              <mat-option value="13">Ingeniería Electrónica</mat-option>
+              <mat-option value="35">Ingeniería Ambiental</mat-option>
+            </mat-select>
           </mat-form-field>
 
-          <mat-form-field appearance="fill">
+          <mat-form-field appearance="fill" >
+            <mat-label>Telefono</mat-label>
+            <input matInput placeholder="Telefono" name="telefono" [(ngModel)]="nuevo.telefono" type="tel" >
+            <mat-icon matSuffix>settings_cell</mat-icon>
+          </mat-form-field>
+
+          <mat-form-field appearance="fill" style="margin-right: 30px;">
             <mat-label>Correo electrónico</mat-label>
             <input matInput placeholder="pat@example.com" name="correo" [(ngModel)]="nuevo.correo" required>
             <mat-icon matSuffix>email</mat-icon>
           </mat-form-field>
 
-          <mat-form-field appearance="fill" style="margin-right: 30px;">
+          <mat-form-field appearance="fill" >
             <mat-label>Contraseña</mat-label>
             <input matInput  [type]="hide ? 'password' : 'text'" name="password" [(ngModel)]="password" required>
             <button type="button" mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
               <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
-            </button>
-          </mat-form-field>
-
-          <mat-form-field appearance="fill">
-            <mat-label>Confirmar Contraseña</mat-label>
-            <input matInput  [type]="hide2 ? 'password' : 'text'" name="password2" [(ngModel)]="password2" required>
-            <button type="button" mat-icon-button matSuffix (click)="hide2 = !hide2" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide2">
-              <mat-icon>{{hide2 ? 'visibility_off' : 'visibility'}}</mat-icon>
             </button>
           </mat-form-field>
 
