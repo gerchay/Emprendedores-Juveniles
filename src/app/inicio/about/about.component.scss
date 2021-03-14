@@ -1,0 +1,44 @@
+
+
+
+.example-small-box, .example-large-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 16px;
+  padding: 16px;
+  border-radius: 8px;
+  text-align:center;
+}
+
+.example-small-box {
+  height: 100px;
+  width: 100px;
+}
+
+.example-large-box {
+  height: 300px;
+  width: 300px;
+  text-align:center;
+}
+
+div.contenidoDiv{
+/*  background-color: lightgray;
+  width: 25vmax;
+  height: 25vmax;*/
+//  overflow-y: scroll;
+  font-size: 170%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+// background: yellow;
+   //     top: 50%;
+        width: 700px;       
+        height: 400px;
+       margin: 0 auto;
+}
+
+img.imagenNosotros{
+  width: 400px;       
+  height: 300px;
+}
