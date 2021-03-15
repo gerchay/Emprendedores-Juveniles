@@ -1,0 +1,47 @@
+
+.contenedor{
+  position: relative;
+  display: inline-block;
+  text-align: center;
+  
+}
+/*
+.texto{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size:xx-large;
+  font-family: 'Courier New', Courier, monospace;
+  
+  color: white;
+  background-color:darkkhaki;
+}
+
+img.imagenHome{
+  width: 1366px;
+  height: 555px;
+  align-content: center;
+  
+}*/
+/*
+.example-card {
+  max-width: 400px;
+}
+
+.example-header-image {
+  background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+  background-size: cover;
+}*/
+
+.textoHeader{
+  font-size: large;
+  text-align: center;
+  font-size: 150%;
+}
+
+.textoP{
+  font-size: x-large;
+  text-align: center;
+  font-family: 'Times New Roman', Times, serif;
+}
