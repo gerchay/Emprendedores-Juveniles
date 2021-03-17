@@ -1,0 +1,31 @@
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+.app-header {
+  background: #5c0000;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  mat-icon {
+    cursor: pointer;
+  }
+  box-shadow: 0 3px 5px -1px rgba(0, 0, 0, .2), 0 6px 10px 0 rgba(0, 0, 0, .14), 0 1px 18px 0 rgba(0, 0, 0, .12);
+}
+
+
+mat-sidenav {
+  width: 200px;
+  cursor: pointer;
+  background: #5c0000;
+  position: fixed;
+  top: 60px;
+  z-index: 1000;
+}
+
+.mat-list-base .mat-list-item,
+a {
+  color:whitesmoke;
+  text-decoration: none;
+  cursor: pointer;
+}

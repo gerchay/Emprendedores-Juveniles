@@ -10,6 +10,12 @@ import { AuthService } from '../services/auth.service';
 })
 export class DashboardComponent implements OnInit {
 
+  opened:boolean = true;
+  menu:any[] = [
+    { titulo: 'Usuarios', icono: 'supervisor_account', link: 'usuarios' },
+    { titulo: 'Fases', icono: 'wysiwyg', link: 'fases' },
+  ];
+
   constructor(
     private route: Router,
     private _auth:AuthService,

@@ -1,8 +1,40 @@
-<div class="container">
-  <div class="text-center pt-4">
-    <button mat-fab color="warn" (click)="logout()" >
-      <mat-icon>logout</mat-icon>
-    </button>
-  </div>
-</div>
 
+<mat-toolbar color="primary" class="app-header">
+  <button mat-icon-button (click)="opened = !opened">
+    <mat-icon>menu</mat-icon>
+  </button>
+  &nbsp;&nbsp;
+  <span >Administrador con Firebase</span>
+
+  <span class="example-spacer"></span>
+
+  <button mat-button [matMenuTriggerFor]="aboveMenu">
+    <mat-icon>person_outline</mat-icon>
+  </button>
+  <mat-menu #aboveMenu="matMenu" yPosition="above">
+    <button mat-menu-item (click)="logout()">
+      <mat-icon>exit_to_app</mat-icon> Salir
+    </button>
+  </mat-menu>
+
+</mat-toolbar>
+
+
+<mat-sidenav-container>
+
+  <mat-sidenav #sideNav [(opened)]="opened" mode="side">
+    <mat-nav-list *ngFor="let item of menu">
+      <a mat-list-item [routerLink]="item.link">
+        <mat-icon style="margin-right: 5px;">{{ item.icono }}</mat-icon> {{ item.titulo}}
+      </a>
+      <mat-divider></mat-divider>
+    </mat-nav-list>
+  </mat-sidenav>
+
+  <mat-sidenav-content style="height: 100%;">
+    <div class="container pt-4" >
+      <router-outlet></router-outlet>
+    </div>
+  </mat-sidenav-content>
+
+</mat-sidenav-container>
