@@ -10,7 +10,7 @@ export class UsuariosService {
 
   private usersCollection: AngularFirestoreCollection<any>;
 
-  constructor(private firestore:AngularFirestore) {
+  constructor(private firestore:AngularFirestore, ) {
     this.usersCollection = this.firestore.collection<any>('usuarios');
   }
 
@@ -31,6 +31,18 @@ export class UsuariosService {
   public deleteById = ( id:string ) => this.usersCollection.doc( id ).delete();
   public getOne = (id: string): Observable<any> => this.usersCollection.doc( id ).valueChanges();
   public editById = (id:string, editado:any) => this.usersCollection.doc( id ).update( editado );
+
+  public buscarTipo = ( id:string ) => {
+    this.getOne( id )
+      .subscribe(
+        user =>{
+          console.log( user );
+          localStorage.setItem('TipoClient',JSON.stringify( user.tipo ) );
+          //JSON.parse(localStorage.getItem('usuario'));
+        },
+        err => console.error( err )
+      )
+  }
 
 
 }

@@ -7,4 +7,5 @@ export interface USUARIO{
   correo?:string,
   telefono?:number,
   escuela?:string,
+  tipo?:string // admin, student
 }
