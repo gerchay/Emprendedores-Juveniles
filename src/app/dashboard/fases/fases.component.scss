@@ -1,0 +1,35 @@
+.photo {
+  width: 250px;
+  margin-bottom: 15px;
+  .avatar-img {
+    width: 150px;
+    margin: auto;
+    position: relative;
+    cursor: pointer;
+    .select {
+      display: none;
+    }
+    img {
+      height: 150px;
+      border-radius: 10px;
+      box-shadow: 0 0 5px #b7b7b7;
+    }
+    .avatar-mask {
+      width: 150px;
+      height: 150px;
+      border-radius: 10px;
+      background: #000000a1;
+      position: absolute;
+      transition: all 0.2s linear;
+    }
+  }
+}
+
+.example-card {
+  max-width: 170px;
+  box-shadow: 5px 10px 18px #888888;
+  img{
+    height: 100%;
+    width: 120px;
+  }
+}

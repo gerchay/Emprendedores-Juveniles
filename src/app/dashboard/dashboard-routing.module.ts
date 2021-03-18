@@ -1,10 +1,20 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { DashboardComponent } from './dashboard.component';
-
+import { FasesComponent } from './fases/fases.component';
+import { UsuariosComponent } from './usuarios/usuarios.component';
+import { PerfilComponent } from './perfil/perfil.component';
 
 const routes: Routes = [
-  { path: '', component: DashboardComponent },
+  { path: '',
+    component: DashboardComponent,
+    children: [
+      { path: 'usuarios', component: UsuariosComponent  },
+      { path: 'fases', component: FasesComponent },
+      { path: 'perfil', component: PerfilComponent },
+      { path: '', redirectTo: 'usuarios', pathMatch: 'full' },
+    ]
+  },
 ];
 
 @NgModule({

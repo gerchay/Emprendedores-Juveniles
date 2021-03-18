@@ -27,6 +27,7 @@ export class RegisterComponent implements OnInit {
     //console.log( this.nuevo );
     if( this.comprobarInput() === false) return;
 
+    this.nuevo.tipo = 'student';
     this._auth.onRegister( this.nuevo, this.password )
       .then( ({ success, message}) =>{
         if( success ){

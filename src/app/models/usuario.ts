@@ -1,5 +1,5 @@
 export interface USUARIO{
-  uid?:string,
+  id?:string,
   cui?:number,
   carnet?:number,
   nombres?:string,
@@ -7,4 +7,13 @@ export interface USUARIO{
   correo?:string,
   telefono?:number,
   escuela?:string,
+  tipo?:string // admin, student
+  photoURL?: string,//se agrego para poner la foto en el perfil
+}
+
+export interface FileI {
+  name: string;
+  imageFile: File;
+  size: string;
+  type: string;
 }
