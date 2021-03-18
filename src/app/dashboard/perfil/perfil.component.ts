@@ -15,7 +15,7 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./perfil.component.scss']
 })
 export class PerfilComponent implements OnInit {
-  
+
   public post$: Observable<USUARIO>;
 
 
@@ -28,7 +28,7 @@ export class PerfilComponent implements OnInit {
 
   //otra forma de mostrar los datos
   user: USUARIO = {
-    uid:"",
+    id:"",
     cui:null,
     carnet:null,
     nombres:"",
@@ -61,20 +61,20 @@ export class PerfilComponent implements OnInit {
       this.initValuesForm(user);
       //console.log("--->",user);
     });*/
-   
+
    /* const idpost=this.route.snapshot.params.id;
     this.post$=this.postSvc.getOnePost(idpost);*/
 
     this.authSvc.isAuth().subscribe(user => {
       if (user) {
         console.log("otra forma--->", user)
-        
+
         this.user.nombres = user.displayName;
         this.user.correo = user.email;
         this.user.photoURL = user.photoURL;
-        this.user.uid=user.uid;
-  
-       this.postSvc.buscarUsuario(this.user.uid);
+        this.user.id=user.uid;
+
+       this.postSvc.buscarUsuario(this.user.id);
        //console.log("sistemas usac: ",localStorage.getItem('usuario'));
         this.initValuesForm( JSON.parse(localStorage.getItem('usuario')) );
       }
@@ -90,7 +90,7 @@ export class PerfilComponent implements OnInit {
   }
 
   //este metodo es para recibir el usuario actualmente logeado
-  private initValuesForm(user:USUARIO): void { 
+  private initValuesForm(user:USUARIO): void {
    /* if (user.photoURL) {
       this.currentImage = user.photoURL;
     }*/

@@ -4,10 +4,6 @@ import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { USUARIO } from '../models/usuario';
 
-
-//se agrego para el perfil
-import { USUARIO} from '../models/usuario';
-
 @Injectable({
   providedIn: 'root'
 })
@@ -55,7 +51,7 @@ export class UsuariosService {
         user =>{
           console.log( user );
           localStorage.setItem('usuario',JSON.stringify( user ) );
-          
+
           //JSON.parse(localStorage.getItem('TipoClient'));
         },
         err => console.error( err )

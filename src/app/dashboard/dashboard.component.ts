@@ -11,16 +11,8 @@ import { AuthService } from '../services/auth.service';
 export class DashboardComponent implements OnInit {
 
   opened:boolean = true;
-<<<<<<< Updated upstream
   isClient:boolean;
   menu:any[];
-=======
-  menu:any[] = [
-    { titulo: 'Usuarios', icono: 'supervisor_account', link: 'usuarios' },
-    { titulo: 'Fases', icono: 'wysiwyg', link: 'fases' },
-    { titulo: 'Perfil', icono: 'folder_shared', link: 'perfil' },
-  ];
->>>>>>> Stashed changes
 
   constructor(
     private route: Router,
@@ -34,6 +26,7 @@ export class DashboardComponent implements OnInit {
     this.menu = [
       { titulo: 'Usuarios', icono: 'supervisor_account', link: 'usuarios', ver: !this.isClient },
       { titulo: 'Fases', icono: 'wysiwyg', link: 'fases', ver: true },
+      { titulo: 'Perfil', icono: 'folder_shared', link: 'perfil', ver: true },
     ];
   }
 

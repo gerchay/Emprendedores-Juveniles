@@ -4,14 +4,11 @@ import { AngularFirestore } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 
 import { USUARIO } from '../models/usuario';
-<<<<<<< Updated upstream
 import { UsuariosService } from './usuarios.service';
-=======
 import { FileI } from '../models/usuario';
 import { finalize } from 'rxjs/operators';
 import { AngularFireStorage } from '@angular/fire/storage';
 import { map } from 'rxjs/operators';//otra forma para mostrar el usuario
->>>>>>> Stashed changes
 
 @Injectable({
   providedIn: 'root'
@@ -19,13 +16,17 @@ import { map } from 'rxjs/operators';//otra forma para mostrar el usuario
 export class AuthService {
 
   private filePath: string;
-
   userData$: Observable<any>;
-<<<<<<< Updated upstream
-  constructor( private afAuth: AngularFireAuth, private firestore: AngularFirestore, private _usuarios: UsuariosService) { this.userData$ = this.afAuth.authState; }
-=======
-  constructor( private afAuth: AngularFireAuth, private firestore: AngularFirestore,private storage: AngularFireStorage ) { this.userData$ = this.afAuth.authState; }
->>>>>>> Stashed changes
+  constructor(
+    private afAuth: AngularFireAuth,
+    private firestore: AngularFirestore,
+    private storage: AngularFireStorage,
+    private _usuarios: UsuariosService
+  )
+  {
+    this.userData$ = this.afAuth.authState;
+  }
+
   onLogin = ({ email, password }) => this.afAuth.signInWithEmailAndPassword( email, password );
   onLogout = () => this.afAuth.signOut();
 
@@ -84,7 +85,7 @@ export class AuthService {
       ).subscribe();
   }
 
-  
+
   private saveUserProfile(user: USUARIO) {
     this.afAuth.auth.currentUser.updateProfile({
       displayName: user.nombres,
