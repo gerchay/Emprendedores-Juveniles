@@ -47,9 +47,11 @@
       </div>
 
       <mat-card-actions style="text-align: center;">
-        <button mat-icon-button >
-          Descargar <mat-icon>file_download</mat-icon>
-        </button>
+        <a href="{{item.url}}" download="{{item.titulo }}" target="_blank">
+          <button mat-icon-button >
+            Descargar <mat-icon>file_download</mat-icon>
+          </button>
+        </a>
       </mat-card-actions>
     </mat-card>
   </div>
