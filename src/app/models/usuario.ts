@@ -1,5 +1,5 @@
 export interface USUARIO{
-  uid?:string,
+  id?:string,
   cui?:number,
   carnet?:number,
   nombres?:string,
