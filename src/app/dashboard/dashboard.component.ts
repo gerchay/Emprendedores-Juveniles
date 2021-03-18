@@ -11,10 +11,8 @@ import { AuthService } from '../services/auth.service';
 export class DashboardComponent implements OnInit {
 
   opened:boolean = true;
-  menu:any[] = [
-    { titulo: 'Usuarios', icono: 'supervisor_account', link: 'usuarios' },
-    { titulo: 'Fases', icono: 'wysiwyg', link: 'fases' },
-  ];
+  isClient:boolean;
+  menu:any[];
 
   constructor(
     private route: Router,
@@ -23,11 +21,20 @@ export class DashboardComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    const tipo = JSON.parse(localStorage.getItem('TipoClient'));
+    this.isClient = tipo === 'admin' ? false : true;
+    this.menu = [
+      { titulo: 'Usuarios', icono: 'supervisor_account', link: 'usuarios', ver: !this.isClient },
+      { titulo: 'Fases', icono: 'wysiwyg', link: 'fases', ver: true },
+    ];
   }
 
   logout(){
     this._auth.onLogout()
-      .then(  rep => this.route.navigate(["/inicio"]) )
+      .then(  rep => {
+        this.route.navigate(["/inicio"]);
+        localStorage.removeItem('TipoClient');
+      })
       .catch( err => { this.openSnackBar('No se pudo cerrar sesión'); console.log( err )});
   }
 

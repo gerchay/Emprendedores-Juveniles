@@ -38,7 +38,7 @@ export class UsuariosService {
         user =>{
           console.log( user );
           localStorage.setItem('TipoClient',JSON.stringify( user.tipo ) );
-          //JSON.parse(localStorage.getItem('usuario'));
+          //JSON.parse(localStorage.getItem('TipoClient'));
         },
         err => console.error( err )
       )

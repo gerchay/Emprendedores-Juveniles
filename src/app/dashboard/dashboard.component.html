@@ -23,8 +23,8 @@
 <mat-sidenav-container>
 
   <mat-sidenav #sideNav [(opened)]="opened" mode="side">
-    <mat-nav-list *ngFor="let item of menu">
-      <a mat-list-item [routerLink]="item.link">
+    <mat-nav-list *ngFor="let item of menu" >
+      <a mat-list-item [routerLink]="item.link" *ngIf="item.ver">
         <mat-icon style="margin-right: 15px;">{{ item.icono }}</mat-icon> {{ item.titulo}}
       </a>
       <mat-divider></mat-divider>
