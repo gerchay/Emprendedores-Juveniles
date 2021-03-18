@@ -1,1 +1,58 @@
-<p>fases works!</p>
+<div class="container" *ngIf="isAdmin">
+  <div class="row">
+
+    <div class="col-md-4 offset-4">
+      <div class="photo" *ngIf="subir">
+        <div class="avatar">
+          <div class="avatar-img" (mouseenter)="focused = true" (mouseleave)="focused = false">
+            <div class="avatar-mask" *ngIf="focused" (click)="image.click()">
+            </div>
+            <img src="assets/img/uploadFile.png">
+            <input type="file" accept="application/pdf" class="select" (change)="upload($event)" #image/>
+          </div>
+        </div>
+      </div>
+      <div *ngIf="!subir" >
+        <h2><button mat-icon-button color="primary" >
+          <mat-icon>file_download_done</mat-icon>
+        </button>  DOCUMENTO CARGADO </h2>
+      </div>
+      <form>
+          <mat-form-field class="example-full-width">
+            <mat-label>Titulo del Documento</mat-label>
+            <input matInput placeholder="Titulo" [(ngModel)]="titulo" name="titulo" >
+            <mat-icon matSuffix>mode_edit</mat-icon>
+          </mat-form-field>
+          <button mat-mini-fab color="accent" style="margin-left: 15px;" matTooltip="Guardar" (click)="Guardar()">
+            <mat-icon>save</mat-icon>
+          </button>
+      </form>
+    </div>
+
+  </div>
+  <hr>
+</div>
+
+
+
+<div class="row">
+  <div class="col-md-2" *ngFor = "let item of fases; ">
+    <mat-card class="example-card">
+      <mat-card-header>
+        <mat-card-title>{{item.titulo }}</mat-card-title>
+        <mat-card-subtitle>{{item.fecha | date: 'dd/MM/yyyy'}}</mat-card-subtitle>
+      </mat-card-header>
+      <div style="text-align: center;">
+        <img mat-card-image src="assets/img/filePDF.png" alt="pdf" >
+      </div>
+
+      <mat-card-actions style="text-align: center;">
+        <a href="{{item.url}}" download="{{item.titulo }}" target="_blank">
+          <button mat-icon-button >
+            Descargar <mat-icon>file_download</mat-icon>
+          </button>
+        </a>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+</div>

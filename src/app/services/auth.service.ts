@@ -3,6 +3,7 @@ import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 import { USUARIO } from '../models/usuario';
+import { UsuariosService } from './usuarios.service';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +11,7 @@ import { USUARIO } from '../models/usuario';
 export class AuthService {
 
   userData$: Observable<any>;
-  constructor( private afAuth: AngularFireAuth, private firestore: AngularFirestore, ) { this.userData$ = this.afAuth.authState; }
+  constructor( private afAuth: AngularFireAuth, private firestore: AngularFirestore, private _usuarios: UsuariosService) { this.userData$ = this.afAuth.authState; }
   onLogin = ({ email, password }) => this.afAuth.signInWithEmailAndPassword( email, password );
   onLogout = () => this.afAuth.signOut();
 
@@ -20,7 +21,10 @@ export class AuthService {
       const { user } = await this.afAuth.createUserWithEmailAndPassword( usuario.correo, password );
       await user.updateProfile({ displayName: usuario.nombres });
       await this.firestore.collection( 'usuarios' ).doc( user.uid ).set( Object.assign({}, usuario) )
-        .then( resp => respuesta = { success:true, message:'¡Bienvenido!'} )
+        .then( resp => {
+          localStorage.setItem('TipoClient',JSON.stringify( usuario.tipo ) );
+          respuesta = { success:true, message:'¡Bienvenido!'}
+        })
         .catch( err =>{ respuesta = { success:false, message:'No se pudo Registrar'}; console.error(err); } )
 
       return respuesta || { success:false, message:'No se pudo Registrar'};

@@ -3,6 +3,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { UsuariosService } from 'src/app/services/usuarios.service';
 
 @Component({
   selector: 'app-login',
@@ -20,7 +21,8 @@ export class LoginComponent implements OnInit {
   constructor(
     private route: Router,
     private _auth:AuthService,
-    private _snackBar: MatSnackBar
+    private _snackBar: MatSnackBar,
+    private _usuarios: UsuariosService
   ) {}
 
   ngOnInit(): void {
@@ -29,7 +31,8 @@ export class LoginComponent implements OnInit {
   onLogin(form: {email:string,password:string}) {
     this._auth.onLogin( form )
       .then(res => {
-        //console.log('Successfully', res);
+        console.log('Successfully', res.user.uid);
+        this._usuarios.buscarTipo( res.user.uid );
         this.openSnackBar('¡Bienvenido!');
         this.route.navigate(['/dashboard']);
       })

@@ -1,5 +1,5 @@
 export interface USUARIO{
-  uid?:string,
+  id?:string,
   cui?:number,
   carnet?:number,
   nombres?:string,
@@ -7,4 +7,5 @@ export interface USUARIO{
   correo?:string,
   telefono?:number,
   escuela?:string,
+  tipo?:string // admin, student
 }
