@@ -2,16 +2,30 @@ import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
+
 import { USUARIO } from '../models/usuario';
+<<<<<<< Updated upstream
 import { UsuariosService } from './usuarios.service';
+=======
+import { FileI } from '../models/usuario';
+import { finalize } from 'rxjs/operators';
+import { AngularFireStorage } from '@angular/fire/storage';
+import { map } from 'rxjs/operators';//otra forma para mostrar el usuario
+>>>>>>> Stashed changes
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
+  private filePath: string;
+
   userData$: Observable<any>;
+<<<<<<< Updated upstream
   constructor( private afAuth: AngularFireAuth, private firestore: AngularFirestore, private _usuarios: UsuariosService) { this.userData$ = this.afAuth.authState; }
+=======
+  constructor( private afAuth: AngularFireAuth, private firestore: AngularFirestore,private storage: AngularFireStorage ) { this.userData$ = this.afAuth.authState; }
+>>>>>>> Stashed changes
   onLogin = ({ email, password }) => this.afAuth.signInWithEmailAndPassword( email, password );
   onLogout = () => this.afAuth.signOut();
 
@@ -43,5 +57,51 @@ export class AuthService {
       }
     }
   }
+
+
+
+  //estos metodos sirven para el perfil
+ /* preSaveUserProfile(user: USUARIO, image?: FileI): void {
+    if (image) {
+      this.uploadImage(user, image);
+    } else {
+      this.saveUserProfile(user);
+    }
+  }
+
+  private uploadImage(user: USUARIO, image: FileI): void {
+    this.filePath = `images/${image.name}`;
+    const fileRef = this.storage.ref(this.filePath);
+    const task = this.storage.upload(this.filePath, image);
+    task.snapshotChanges()
+      .pipe(
+        finalize(() => {
+          fileRef.getDownloadURL().subscribe(urlImage => {
+            user.photoURL = urlImage;
+            this.saveUserProfile(user);
+          });
+        })
+      ).subscribe();
+  }
+
+  
+  private saveUserProfile(user: USUARIO) {
+    this.afAuth.auth.currentUser.updateProfile({
+      displayName: user.nombres,
+      photoURL: user.photoURL
+    })
+      .then(() => console.log('User updated!'))
+      .catch(err => console.log('Error', err));
+  }*/
+
+
+  //intentando otra forma de mostrar los usuarios
+  isAuth() {
+    return this.afAuth.authState.pipe(map(auth => auth));
+  }
+
 }
+
+
+
 

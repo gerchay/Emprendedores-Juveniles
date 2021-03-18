@@ -4,6 +4,10 @@ import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { USUARIO } from '../models/usuario';
 
+
+//se agrego para el perfil
+import { USUARIO} from '../models/usuario';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -37,6 +41,23 @@ export class UsuariosService {
     this.getOne( id )
       .subscribe(
         user => localStorage.setItem('TipoClient',JSON.stringify( user.tipo ) ),
+        err => console.error( err )
+      )
+  }
+
+  //se agrego para usarlo en el perfil
+  public getOnePost(id: USUARIO): Observable<USUARIO> {
+    return this.firestore.doc<USUARIO>(`perfil/${id}`).valueChanges();
+  }
+  public buscarUsuario = ( id:string ) => {
+     this.getOne( id )
+      .subscribe(
+        user =>{
+          console.log( user );
+          localStorage.setItem('usuario',JSON.stringify( user ) );
+          
+          //JSON.parse(localStorage.getItem('TipoClient'));
+        },
         err => console.error( err )
       )
   }

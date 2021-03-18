@@ -11,8 +11,16 @@ import { AuthService } from '../services/auth.service';
 export class DashboardComponent implements OnInit {
 
   opened:boolean = true;
+<<<<<<< Updated upstream
   isClient:boolean;
   menu:any[];
+=======
+  menu:any[] = [
+    { titulo: 'Usuarios', icono: 'supervisor_account', link: 'usuarios' },
+    { titulo: 'Fases', icono: 'wysiwyg', link: 'fases' },
+    { titulo: 'Perfil', icono: 'folder_shared', link: 'perfil' },
+  ];
+>>>>>>> Stashed changes
 
   constructor(
     private route: Router,
@@ -36,6 +44,7 @@ export class DashboardComponent implements OnInit {
         localStorage.removeItem('TipoClient');
       })
       .catch( err => { this.openSnackBar('No se pudo cerrar sesión'); console.log( err )});
+     // localStorage.removeItem("usuario");
   }
 
   openSnackBar(message:string, horizontal:any = 'end', vertical:any='top') {

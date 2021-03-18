@@ -6,11 +6,13 @@ import { FormsModule, ReactiveFormsModule  } from '@angular/forms';
 import { UsuariosComponent } from './usuarios/usuarios.component';
 import { FasesComponent } from './fases/fases.component'; // FORMULARIOS REACTIVOS
 import { UsuariosService } from '../services/usuarios.service';
+import { PerfilComponent } from './perfil/perfil.component';
 
 @NgModule({
   declarations: [
     UsuariosComponent,
-    FasesComponent
+    FasesComponent,
+    PerfilComponent
   ],
   imports: [
     CommonModule,
