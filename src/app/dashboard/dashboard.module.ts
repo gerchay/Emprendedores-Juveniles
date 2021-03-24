@@ -7,12 +7,14 @@ import { UsuariosComponent } from './usuarios/usuarios.component';
 import { FasesComponent } from './fases/fases.component'; // FORMULARIOS REACTIVOS
 import { UsuariosService } from '../services/usuarios.service';
 import { PerfilComponent } from './perfil/perfil.component';
+import { RecursosComponent } from './recursos/recursos.component';
 
 @NgModule({
   declarations: [
     UsuariosComponent,
     FasesComponent,
-    PerfilComponent
+    PerfilComponent,
+    RecursosComponent
   ],
   imports: [
     CommonModule,
