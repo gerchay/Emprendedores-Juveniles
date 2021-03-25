@@ -9,6 +9,7 @@ import { FileI } from '../models/usuario';
 import { finalize } from 'rxjs/operators';
 import { AngularFireStorage } from '@angular/fire/storage';
 import { map } from 'rxjs/operators';//otra forma para mostrar el usuario
+import { Charla } from '../models/usuario';
 
 @Injectable({
   providedIn: 'root'
@@ -16,7 +17,8 @@ import { map } from 'rxjs/operators';//otra forma para mostrar el usuario
 export class AuthService {
 
   private filePath: string;
-  userData$: Observable<any>;
+  public  userData$: Observable<USUARIO>;
+
   constructor(
     private afAuth: AngularFireAuth,
     private firestore: AngularFirestore,
@@ -62,15 +64,17 @@ export class AuthService {
 
 
   //estos metodos sirven para el perfil
- /* preSaveUserProfile(user: USUARIO, image?: FileI): void {
-    if (image) {
+  preSaveUserProfile(user: USUARIO, llaveusuario:string,image?: FileI): void {
+    /*if (image) {
       this.uploadImage(user, image);
     } else {
       this.saveUserProfile(user);
-    }
+    }*/
+    this.uploadImage(user, llaveusuario,image);
+   // this._usuarios.editById("ujZxNFLItXMOPeIOKmV1gMvGrfI2",user);
   }
 
-  private uploadImage(user: USUARIO, image: FileI): void {
+  private uploadImage(user: USUARIO, llaveusuario:string,image: FileI): void {
     this.filePath = `images/${image.name}`;
     const fileRef = this.storage.ref(this.filePath);
     const task = this.storage.upload(this.filePath, image);
@@ -79,14 +83,15 @@ export class AuthService {
         finalize(() => {
           fileRef.getDownloadURL().subscribe(urlImage => {
             user.photoURL = urlImage;
-            this.saveUserProfile(user);
+           // this.saveUserProfile(user);
+           this._usuarios.editById(llaveusuario,user);
           });
         })
       ).subscribe();
   }
 
 
-  private saveUserProfile(user: USUARIO) {
+  /*private saveUserProfile(user: USUARIO) {
     this.afAuth.auth.currentUser.updateProfile({
       displayName: user.nombres,
       photoURL: user.photoURL
@@ -96,9 +101,36 @@ export class AuthService {
   }*/
 
 
-  //intentando otra forma de mostrar los usuarios
+  // forma de mostrar los usuarios
   isAuth() {
     return this.afAuth.authState.pipe(map(auth => auth));
+  }
+
+  //es para registrar un evento
+  async crearcharla(data: Charla):Promise<{ success:boolean, message:string}>{
+    
+    try {
+      
+      let respuesta:any;
+
+    await this.firestore.collection('charlas').add(data)
+    .then( resp => {
+      respuesta = { success:true, message:'Nueva Charla Creada'}
+    })
+    .catch( err =>{ respuesta = { success:false, message:'No se pudo Registrar la Charla'}; console.error(err); } )
+
+      return respuesta || { success:false, message:'Error: No se pudo Registrar la Charla '};
+
+
+    } catch (error) {
+      console.error('Error al registrar una Charla', error);
+      return { success:false, message:'No se puede crear una charla.'}
+    }
+
+  }//fin del metodo
+
+  public ObtenerCharlas() :Observable<any[]> {
+    return this.firestore.collection<any>('charlas').snapshotChanges();
   }
 
 }
