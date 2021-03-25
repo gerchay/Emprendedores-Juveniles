@@ -7,14 +7,31 @@ import { UsuariosComponent } from './usuarios/usuarios.component';
 import { FasesComponent } from './fases/fases.component'; // FORMULARIOS REACTIVOS
 import { UsuariosService } from '../services/usuarios.service';
 import { PerfilComponent } from './perfil/perfil.component';
+<<<<<<< Updated upstream
 import { RecursosComponent } from './recursos/recursos.component';
+=======
+import { CharlasComponent } from './charlas/charlas.component';
+import { FullCalendarModule } from '@fullcalendar/angular'; //para calendario de las charlas
+import dayGridPlugin from '@fullcalendar/daygrid'; //para calendario de las charlas
+import interactionPlugin from '@fullcalendar/interaction';//para calendario de las charlas
+
+
+FullCalendarModule.registerPlugins([ //para calendario de las charlas
+  dayGridPlugin,
+  interactionPlugin,
+]);
+>>>>>>> Stashed changes
 
 @NgModule({
   declarations: [
     UsuariosComponent,
     FasesComponent,
     PerfilComponent,
+<<<<<<< Updated upstream
     RecursosComponent
+=======
+    CharlasComponent
+>>>>>>> Stashed changes
   ],
   imports: [
     CommonModule,
@@ -22,6 +39,7 @@ import { RecursosComponent } from './recursos/recursos.component';
     MaterialModule,
     FormsModule,
     ReactiveFormsModule,
+    FullCalendarModule,//para calendario de las charlas
   ],
   providers:[
     UsuariosService,

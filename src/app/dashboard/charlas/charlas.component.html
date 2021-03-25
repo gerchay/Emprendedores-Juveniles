@@ -1,0 +1,110 @@
+
+<div id="calendar">
+ 
+  <mat-accordion class="example-headers-align">
+ 
+    <mat-expansion-panel  hideToggle  [disabled]="isDisabled">
+
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Agregar Evento
+        </mat-panel-title>
+        <mat-panel-description>
+          Puede agregar un evento sobre charlas , talleres o eventos.
+          <mat-icon>date_range</mat-icon>
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+
+      <form (ngSubmit)="RegistroCharla( )">
+
+        <mat-form-field appearance="fill" style="margin-right: 30px;">
+          <mat-label>Descripcion</mat-label>
+          <input matInput placeholder="Descripcion" name="descripcion"
+           [(ngModel)]="nuevacharla.descripcion"  required type="text" >
+        </mat-form-field>
+
+        <mat-form-field appearance="fill" style="margin-right: 30px;">
+          <mat-label>Enlace</mat-label>
+          <input matInput placeholder="Enlace" name="enlace" 
+          [(ngModel)]="nuevacharla.enlace" required type="text" >
+        </mat-form-field>
+
+        <mat-form-field appearance="fill" style="margin-right: 30px;">
+          <mat-label>Fecha</mat-label>
+          <input matInput placeholder="2021-01-01" name="fecha" 
+          [(ngModel)]="nuevacharla.fecha" required type="text">
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+          <mat-label>Hora</mat-label>
+          <input matInput placeholder="Hora" name="hora" 
+          [(ngModel)]="nuevacharla.hora"required  type="text">
+        </mat-form-field>
+
+        
+      <div class="text-center">
+        <button type="submit" mat-raised-button color="accent" style="width: 50%;" >
+          Publicar Charla
+        </button>
+      </div>
+
+    </form>
+
+      <!--
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Agregar Evento
+        </mat-panel-title>
+        <mat-panel-description>
+          Puede agregar un evento sobre charlas , talleres o eventos.
+          <mat-icon>date_range</mat-icon>
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+  
+
+     <mat-form-field style="margin-right: 40px;">
+      <mat-label>Descripcion</mat-label>
+      <input matInput  formControlName="descripcion">
+    </mat-form-field>
+
+    <mat-form-field style="margin-right: 40px;">
+      <mat-label>Enlace</mat-label>
+      <input matInput  formControlName="enlace">
+    </mat-form-field>
+
+    <mat-form-field style="margin-right: 40px;">
+      <mat-label>Fecha(yyyy-mm-dd)</mat-label>
+      <input matInput  formControlName="fecha">
+    </mat-form-field>
+
+    
+    <mat-form-field appearance="fill">
+      <mat-label>Different locale</mat-label>
+      <input matInput [matDatepicker]="dp " >
+      <mat-datepicker-toggle matSuffix [for]="dp"></mat-datepicker-toggle>
+      <mat-datepicker #dp></mat-datepicker>
+    </mat-form-field>
+   <mat-datepicker #picker></mat-datepicker>
+
+    <mat-form-field>
+      <mat-label>Hora</mat-label>
+      <input matInput formControlName="hora">
+    </mat-form-field>  -->
+
+
+
+    </mat-expansion-panel>
+  
+  </mat-accordion>
+
+</div>
+
+<br>
+<br>
+
+<div>
+  <full-calendar [options]="calendarOptions" ></full-calendar>
+  
+
+
+</div>

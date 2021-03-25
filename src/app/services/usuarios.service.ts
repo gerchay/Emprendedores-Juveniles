@@ -2,7 +2,11 @@ import { Injectable } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { USUARIO } from '../models/usuario';
+//import { USUARIO } from '../models/usuario';
+
+
+//se agrego para el perfil
+import { USUARIO} from '../models/usuario';
 
 @Injectable({
   providedIn: 'root'
@@ -50,8 +54,8 @@ export class UsuariosService {
       .subscribe(
         user =>{
           console.log( user );
-          localStorage.setItem('usuario',JSON.stringify( user ) );
-
+          //localStorage.setItem('usuario',JSON.stringify( user ) );
+           user;
           //JSON.parse(localStorage.getItem('TipoClient'));
         },
         err => console.error( err )
