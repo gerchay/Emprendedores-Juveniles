@@ -9,7 +9,7 @@ import { FileI } from '../models/usuario';
 import { finalize } from 'rxjs/operators';
 import { AngularFireStorage } from '@angular/fire/storage';
 import { map } from 'rxjs/operators';//otra forma para mostrar el usuario
-import { Charla } from '../models/usuario';
+import { Charla,Grabacion } from '../models/usuario';
 
 @Injectable({
   providedIn: 'root'
@@ -132,6 +132,39 @@ export class AuthService {
   public ObtenerCharlas() :Observable<any[]> {
     return this.firestore.collection<any>('charlas').snapshotChanges();
   }
+
+  //******************************* GRABACIONES **************************************** 
+
+   //es para registrar un evento
+   async CrearGrabacion(data: Grabacion):Promise<{ success:boolean, message:string}>{
+    
+    try {
+      
+      let respuesta:any;
+
+    await this.firestore.collection('grabaciones').add(data)
+    .then( resp => {
+      respuesta = { success:true, message:'Nueva Grabacion Agregada'}
+    })
+    .catch( err =>{ respuesta = { success:false, message:'No se pudo Registrar la Grabacion'}; console.error(err); } )
+
+      return respuesta || { success:false, message:'Error: No se pudo Registrar la Grabacion '};
+
+
+    } catch (error) {
+      console.error('Error al registrar una Grabacion', error);
+      return { success:false, message:'No se puede publicar una grabacion.'}
+    }
+
+  }//fin del metodo
+
+  public ObtenerGrabacion() :Observable<any[]> {
+    return this.firestore.collection<any>('grabaciones').snapshotChanges();
+  }
+
+
+
+
 
 }
 

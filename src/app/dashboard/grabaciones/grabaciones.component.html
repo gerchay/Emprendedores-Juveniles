@@ -1,0 +1,92 @@
+
+<div id="calendar">
+ 
+  <mat-accordion class="example-headers-align">
+ 
+    <mat-expansion-panel  hideToggle  [disabled]="isDisabled">
+
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Agregar Grabacion
+        </mat-panel-title>
+        <mat-panel-description>
+          Puede agregar enlaces a grabaciones.
+          <mat-icon>movie_creation</mat-icon>
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+
+      <form (ngSubmit)="RegistroGrabacion()">
+
+        <mat-form-field appearance="fill" style="margin-right: 30px;">
+          <mat-label>Descripcion</mat-label>
+          <input matInput placeholder="Descripcion" name="descripcion"
+           [(ngModel)]="nuevagrabacion.Descripcion"  required type="text" >
+        </mat-form-field>
+
+        <mat-form-field appearance="fill" style="margin-right: 30px;">
+          <mat-label>Enlace Video</mat-label>
+          <input matInput placeholder="Enlace" name="enlace"
+           [(ngModel)]="nuevagrabacion.Enlace"  required type="text" >
+        </mat-form-field>
+
+        
+      <div class="text-center">
+        <button type="submit" mat-raised-button color="accent" style="width: 50%;" >
+          Agregar enlace
+        </button>
+      </div>
+
+    </form>
+
+
+
+
+    </mat-expansion-panel>
+  
+  </mat-accordion>
+
+</div>
+
+
+<div class="container p-3">
+  <div class="row "> 
+      <div class="row justify-content-center">  
+        
+       
+
+       
+      <div  class="card mx-3 my-4"  style="width: 18rem; background-color:#1E8449  ;" 
+      *ngFor="let grabacion of ListaGrabaciones" >
+        <mat-card >
+
+          
+          <mat-card-header class="textoHeader" >
+            <mat-card-title  class="textoHeader" ><p>{{grabacion.data.Descripcion}}</p></mat-card-title>
+        
+            <mat-card-subtitle>
+              <p>
+             Emprendedores Juveniles
+              </p>
+          </mat-card-subtitle>
+
+          </mat-card-header>
+        
+
+        </mat-card>
+
+        <mat-card-actions>
+          <a href={{grabacion.data.Enlace}}>
+            <button mat-fab color="primary" aria-label="Example">
+              <mat-icon>movie_creation</mat-icon>
+              Ir al video
+            </button>
+          </a>
+        </mat-card-actions>
+
+
+      </div>
+
+
+   </div>
+   </div>
+</div>  
