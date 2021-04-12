@@ -25,3 +25,8 @@ export interface Charla{
   fecha: string;
   hora: string;
 }
+
+export interface Grabacion{
+  Descripcion:string;
+  Enlace:string;
+}
