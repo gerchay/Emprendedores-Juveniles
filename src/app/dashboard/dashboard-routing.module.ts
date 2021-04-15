@@ -4,6 +4,8 @@ import { DashboardComponent } from './dashboard.component';
 import { FasesComponent } from './fases/fases.component';
 import { UsuariosComponent } from './usuarios/usuarios.component';
 import { PerfilComponent } from './perfil/perfil.component';
+import { CharlasComponent } from './charlas/charlas.component';
+import { GrabacionesComponent } from './grabaciones/grabaciones.component';
 
 const routes: Routes = [
   { path: '',
@@ -12,6 +14,8 @@ const routes: Routes = [
       { path: 'usuarios', component: UsuariosComponent  },
       { path: 'fases', component: FasesComponent },
       { path: 'perfil', component: PerfilComponent },
+      { path: 'charlas', component: CharlasComponent },
+      { path: 'grabaciones', component: GrabacionesComponent },
       { path: '', redirectTo: 'usuarios', pathMatch: 'full' },
     ]
   },

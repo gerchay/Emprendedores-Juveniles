@@ -17,3 +17,16 @@ export interface FileI {
   size: string;
   type: string;
 }
+
+
+export interface Charla{
+  descripcion:string;
+  enlace?: string;
+  fecha: string;
+  hora: string;
+}
+
+export interface Grabacion{
+  Descripcion:string;
+  Enlace:string;
+}

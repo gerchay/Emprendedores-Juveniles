@@ -1,0 +1,7 @@
+[
+{"title": "Modelos de negocios", "start": "2021-03-12", "end": "2021-03-12"},
+
+{"title": "charla sobre hablar en publico", "start": "2021-03-25", "end": "2021-03-25"}
+
+]
+

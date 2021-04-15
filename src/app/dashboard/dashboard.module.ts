@@ -8,11 +8,31 @@ import { FasesComponent } from './fases/fases.component'; // FORMULARIOS REACTIV
 import { UsuariosService } from '../services/usuarios.service';
 import { PerfilComponent } from './perfil/perfil.component';
 
+import { RecursosComponent } from './recursos/recursos.component';
+
+import { CharlasComponent } from './charlas/charlas.component';
+import { FullCalendarModule } from '@fullcalendar/angular'; //para calendario de las charlas
+import dayGridPlugin from '@fullcalendar/daygrid'; //para calendario de las charlas
+import interactionPlugin from '@fullcalendar/interaction';
+import { GrabacionesComponent } from './grabaciones/grabaciones.component';//para calendario de las charlas
+
+
+FullCalendarModule.registerPlugins([ //para calendario de las charlas
+  dayGridPlugin,
+  interactionPlugin,
+]);
+
+
 @NgModule({
   declarations: [
     UsuariosComponent,
     FasesComponent,
-    PerfilComponent
+    PerfilComponent,
+    RecursosComponent,
+
+    CharlasComponent,
+
+    GrabacionesComponent
   ],
   imports: [
     CommonModule,
@@ -20,6 +40,7 @@ import { PerfilComponent } from './perfil/perfil.component';
     MaterialModule,
     FormsModule,
     ReactiveFormsModule,
+    FullCalendarModule,//para calendario de las charlas
   ],
   providers:[
     UsuariosService,
