@@ -55,7 +55,7 @@ export class PerfilComponent implements OnInit {
         this.postSvc.getOne( user.uid )
       .subscribe(
         user =>{
-          console.log("nueva forma mas corto--->" ,user );
+         // console.log("nueva forma mas corto--->" ,user );
           this.initValuesForm( user);
         },
         err => console.error( err )
@@ -83,7 +83,7 @@ export class PerfilComponent implements OnInit {
       this.currentImage = user.photoURL;
     }
     
-    console.log("mostrar--->",user.nombres);
+   // console.log("mostrar--->",user.nombres);
     this.profileForm.patchValue({
       nombres: user.nombres,
       apellidos:user.apellidos,
