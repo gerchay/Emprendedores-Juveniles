@@ -47,7 +47,7 @@ export class GrabacionesComponent implements OnInit {
           data: grabacionData.payload.doc.data()
         });
         //this.ingresar_grabacion(grabacionData.payload.doc.data());
-        console.log("DATA--> ",this.ListaGrabaciones);
+       // console.log("DATA--> ",this.ListaGrabaciones);
       })
     });
 

@@ -6,6 +6,7 @@ import { UsuariosComponent } from './usuarios/usuarios.component';
 import { PerfilComponent } from './perfil/perfil.component';
 import { CharlasComponent } from './charlas/charlas.component';
 import { GrabacionesComponent } from './grabaciones/grabaciones.component';
+import { BolsaEmpleoComponent } from './bolsa-empleo/bolsa-empleo.component';
 
 const routes: Routes = [
   { path: '',
@@ -16,6 +17,7 @@ const routes: Routes = [
       { path: 'perfil', component: PerfilComponent },
       { path: 'charlas', component: CharlasComponent },
       { path: 'grabaciones', component: GrabacionesComponent },
+      { path: 'bolsaempleo', component: BolsaEmpleoComponent },
       { path: '', redirectTo: 'usuarios', pathMatch: 'full' },
     ]
   },

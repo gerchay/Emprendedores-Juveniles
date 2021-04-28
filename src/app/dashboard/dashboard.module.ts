@@ -14,7 +14,8 @@ import { CharlasComponent } from './charlas/charlas.component';
 import { FullCalendarModule } from '@fullcalendar/angular'; //para calendario de las charlas
 import dayGridPlugin from '@fullcalendar/daygrid'; //para calendario de las charlas
 import interactionPlugin from '@fullcalendar/interaction';
-import { GrabacionesComponent } from './grabaciones/grabaciones.component';//para calendario de las charlas
+import { GrabacionesComponent } from './grabaciones/grabaciones.component';
+import { BolsaEmpleoComponent } from './bolsa-empleo/bolsa-empleo.component';//para calendario de las charlas
 
 
 FullCalendarModule.registerPlugins([ //para calendario de las charlas
@@ -32,7 +33,9 @@ FullCalendarModule.registerPlugins([ //para calendario de las charlas
 
     CharlasComponent,
 
-    GrabacionesComponent
+    GrabacionesComponent,
+
+    BolsaEmpleoComponent
   ],
   imports: [
     CommonModule,
