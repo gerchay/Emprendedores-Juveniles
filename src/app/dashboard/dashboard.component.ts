@@ -29,6 +29,7 @@ export class DashboardComponent implements OnInit {
       { titulo: 'Perfil', icono: 'folder_shared', link: 'perfil', ver: true },
       { titulo: 'Charlas', icono: 'event', link: 'charlas', ver: true },
       { titulo: 'Grabaciones', icono: 'movie_creation', link: 'grabaciones', ver: true },
+      { titulo: 'Bolsa de Empleo', icono: 'work', link: 'bolsaempleo', ver: true },
     ];
   }
 
